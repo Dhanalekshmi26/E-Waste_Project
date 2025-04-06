@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f9f9;
+            font-family: 'Segoe UI', sans-serif;
+            padding-top: 50px;
+        }
+
+        .container {
+            max-width: 700px;
+        }
+
+        .card {
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            background-color: #fff;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .btn-back {
+            margin-top: 20px;
+        }
+
+        .heading {
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card text-center">
+            <h2 class="heading mb-4">E-Waste Detection Result</h2>
+
+            <p class="label">Device:</p>
+            <p>{{ device_type }}</p>
+
+            {% if ewaste_type %}
+                <p class="label">E-Waste Type:</p>
+                <p>{{ ewaste_type }}</p>
+            {% endif %}
+
+            {% if internal_components %}
+                <p class="label">Internal Components & Recycling Methods:</p>
+                <ul class="list-group text-start">
+                    {% for component in internal_components %}
+                        <li class="list-group-item">
+                            <strong>{{ component.component }}:</strong> {{ component.recycling_method }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <p class="label mt-4">Uploaded Image:</p>
+            <img src="{{ url_for('static', filename='uploads/' + image_path) }}" alt="Uploaded Image">
+
+            <a href="{{ url_for('index') }}" class="btn btn-primary btn-back">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
