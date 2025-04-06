@@ -104,7 +104,7 @@ This intelligent system helps users:
 ## 🚀 Getting Started
 
 ### 🔧 Requirements
-- Python 3.7+
+- Python 3.10
 - TensorFlow
 - Flask
 - NumPy, Pillow, etc.
@@ -159,13 +159,7 @@ Special thanks to:
 - Electronics recycling researchers
 - Open image datasets from Kaggle
 
----
-
-Would you like me to help you:
-- Write the `requirements.txt` file?
-- Add GitHub repository tags, topics, or a logo banner?
-
-Let me know — we’ll make it super polished!
+-----
 
 
 
